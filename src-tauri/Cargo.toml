@@ -1,0 +1,45 @@
+[package]
+name = "wtftodaydev"
+version = "0.1.0"
+description = "WTF Today - Developer Daily Briefing"
+authors = ["nock.ing"]
+edition = "2021"
+
+[lib]
+name = "wtftodaydev_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = [] }
+tauri-plugin-opener = "2"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+# Database
+rusqlite = { version = "0.31", features = ["bundled"] }
+
+# HTTP & Async
+reqwest = { version = "0.12", features = ["json", "rustls-tls"] }
+tokio = { version = "1", features = ["full"] }
+
+# Date/Time
+chrono = { version = "0.4", features = ["serde"] }
+
+# Calendar parsing
+ical = "0.11"
+
+# Secure storage
+keyring = { version = "3", features = ["apple-native", "windows-native", "sync-secret-service"] }
+
+# Error handling
+thiserror = "1"
+anyhow = "1"
+
+# URL encoding
+urlencoding = "2"
+
+# Logging
+log = "0.4"
